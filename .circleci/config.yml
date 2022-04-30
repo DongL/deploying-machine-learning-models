@@ -316,6 +316,7 @@ workflows:
   version: 2
   test_all:
     jobs:
+      - section_07_test_and_upload_regression_model
       - section_9_differential_tests 
       - test_ml_api_py37
 
