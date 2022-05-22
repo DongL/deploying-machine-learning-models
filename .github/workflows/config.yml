@@ -20,6 +20,7 @@ jobs:
       
       - name: log python version 
         run: |
+          pip install --upgrade pip
           python --version
 
       - name: create venv
@@ -31,13 +32,13 @@ jobs:
 
       - name: install tox
         run: |
-          pip install --upgrade pip
-          pip install typing-extensions --upgrade
+          pip uninstall typing-extensions
+          pip install typing-extensions
           pip install --user tox
 
       - name: test app
         run: | 
-          pip show typing-extensions
+          # pip show typing-extensions
           cd section-07-ci-and-publishing/house-prices-api
           tox
           # /github/home/.local/lib/python3.9/site-packages/tox
