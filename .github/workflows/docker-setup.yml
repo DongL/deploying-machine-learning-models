@@ -14,6 +14,9 @@ jobs:
       - name: log docker 
         run: |
           echo 'Docker image installed!'
+      - name: log python version
+        run: | 
+          python --version
 
       # working_directory: ~/project
 

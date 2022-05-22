@@ -8,16 +8,16 @@ jobs:
   prepare-venv: 
     needs: setup-docker-env
     uses: DongL/deploying-machine-learning-models/.github/workflows/prepare-venv.yml@mle
-  prepare-tox: 
-    needs: setup-docker-env
-    uses: DongL/deploying-machine-learning-models/.github/workflows/prepare-tox.yml@mle
-  sanity-check:
-    runs-on: ubuntu-latest
-    needs: prepare-tox
-    steps:
-      - name: log python version
-        run: |
-          python --version
+  # prepare-tox: 
+  #   needs: setup-docker-env
+  #   uses: DongL/deploying-machine-learning-models/.github/workflows/prepare-tox.yml@mle
+  # sanity-check:
+  #   runs-on: ubuntu-latest
+  #   needs: prepare-tox
+  #   steps:
+  #     - name: log python version
+  #       run: |
+  #         python --version
 
 
     

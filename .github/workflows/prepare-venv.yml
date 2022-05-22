@@ -7,8 +7,10 @@ jobs:
   # setup-docker-env:
   #   uses: DongL/deploying-machine-learning-models/.github/workflows/docker-setup.yml@mle
 
-  setup-python-env:
+  prepare-python:
     runs-on: ubuntu-latest
+    container: 
+      image: python:3.9.13-alpine3.14
     steps: 
       - name: log python version 
         run: |
