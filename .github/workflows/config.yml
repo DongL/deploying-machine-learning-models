@@ -7,26 +7,29 @@ jobs:
     runs-on: ubuntu-latest
     container: 
       image: python:3.9.13-alpine3.14
-
-  prepare-python:
-    runs-on: ubuntu-latest
-    steps: 
+    steps:
       - name: log python version 
         run: |
           python --version
+
       - name: create venv
         run: |
           python3 -m venv venv
           source venv/bin/activate
-          pip install --upgrade pip
+          pip install --upgrade pip 
 
-  prepare_tox:
-    runs-on: ubuntu-latest
-    steps: 
       - name: Install tox
         run: |
           sudo pip install --upgrade pip
           pip install --user tox
+
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
+          fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
+        run: | 
+          ls -a
+
 
 
 
