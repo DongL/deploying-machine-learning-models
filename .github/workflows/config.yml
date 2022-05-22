@@ -12,5 +12,10 @@ jobs:
       - name: log python version 
         run: |
           python --version
+      - name: create venv
+        run: |
+          python3 -m venv venv
+          source $HOME/venv/bin/activate
+          pip install --upgrade pip
   
 
