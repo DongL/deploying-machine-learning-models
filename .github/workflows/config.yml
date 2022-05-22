@@ -15,7 +15,8 @@ jobs:
       - name: create venv
         run: |
           python3 -m venv venv
-          source $HOME/venv/bin/activate
+          ls ~
+          source ~/venv/bin/activate
           pip install --upgrade pip
   
 
