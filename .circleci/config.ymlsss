@@ -308,7 +308,6 @@ jobs:
 tags_only: &tags_only
   filters:
     branches:
-      master:
       ignore: /.*/
     tags:
       only: /^.*/
