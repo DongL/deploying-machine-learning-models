@@ -3,7 +3,7 @@ on: push
 
 jobs:
   setup-docker-env:
-    uses: deploying-machine-learning-models/.github/workflows/prepare_venv.yml@mle
+    uses: DongL/deploying-machine-learning-models/.github/workflows/prepare_venv.yml@mle
 
   setup-python-env:
     runs-on: ubuntu-latest
