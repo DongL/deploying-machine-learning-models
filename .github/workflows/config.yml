@@ -31,9 +31,8 @@ jobs:
 
       - name: test_app
         run: | 
-          pip install --user tox 
           cd section-07-ci-and-publishing/house-prices-api
-          tox
+          /github/home/.local/lib/python3.9/site-packages/tox
 
 
 
