@@ -10,6 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     container: 
       image: python:3.9.13-alpine3.14
+    steps:
+      - name: log docker 
+        run: |
+          echo 'Docker image installed!'
+
       # working_directory: ~/project
 
   
