@@ -1,0 +1,13 @@
+name: prepare tox
+on: 
+   workflow_call:
+   workflow_dispatch:
+
+jobs:
+  Prepare_tox:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Install tox
+        run: |
+          sudo pip install --upgrade pip
+          pip install --user tox

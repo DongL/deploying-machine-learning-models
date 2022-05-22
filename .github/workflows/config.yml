@@ -1,0 +1,11 @@
+name: config file 
+
+on: push
+
+jobs:
+  setup-docker-env:
+    uses: DongL/deploying-machine-learning-models/.github/workflows/docker-setup.yml@mle
+  prepare-venv: 
+    uses: DongL/deploying-machine-learning-models/.github/workflows/prepare-venv.yml@mle
+  prepare-tox: 
+    uses: DongL/deploying-machine-learning-models/.github/workflows/prepare-venv.yml@mle

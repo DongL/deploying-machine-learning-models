@@ -1,5 +1,7 @@
 name: prepare venv
-on: push
+on: 
+   workflow_call:
+   workflow_dispatch:
 
 jobs:
   setup-docker-env:
