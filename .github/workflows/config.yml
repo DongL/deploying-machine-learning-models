@@ -7,7 +7,7 @@ jobs:
   docker-setup:
     runs-on: ubuntu-latest
     container: 
-      image: node:3.9.13-alpine3.14
+      image: python:3.9.13-alpine3.14
     steps: 
       - name: log python version 
         run: |
