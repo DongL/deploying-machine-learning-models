@@ -4,7 +4,7 @@ on: push
 
 jobs: 
   docker-setup:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     # container: 
     #   image: python:3.9.13-alpine3.14
     steps:
