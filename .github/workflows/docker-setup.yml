@@ -1,0 +1,16 @@
+name: ML-config
+on: 
+  - workflow_call
+  - workflow_dispatch
+    
+
+
+jobs:
+  docker-setup:
+    runs-on: ubuntu-latest
+    container: 
+      image: python:3.9.13-alpine3.14
+      # working_directory: ~/project
+
+  
+

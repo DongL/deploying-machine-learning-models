@@ -1,13 +1,12 @@
-name: ML-config
+name: prepare venv
 on: push
 
-
-
 jobs:
-  docker-setup:
+  setup-docker-env:
+    uses: DongL/deploying-machine-learning-models/.github/workflows/docker-setup.yml@main
+
+  setup-python-env:
     runs-on: ubuntu-latest
-    container: 
-      image: python:3.9.13-alpine3.14
     steps: 
       - name: log python version 
         run: |
@@ -17,5 +16,3 @@ jobs:
           python3 -m venv venv
           source venv/bin/activate
           pip install --upgrade pip
-  
-
