@@ -2,12 +2,41 @@ name: config file
 
 on: push
 
-jobs:
-  setup-docker-env:
-    uses: DongL/deploying-machine-learning-models/.github/workflows/docker-setup.yml@mle
-  prepare-venv: 
-    needs: setup-docker-env
-    uses: DongL/deploying-machine-learning-models/.github/workflows/prepare-venv.yml@mle
+jobs: 
+  docker-setup:
+    runs-on: ubuntu-latest
+    container: 
+      image: python:3.9.13-alpine3.14
+
+  prepare-python:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: log python version 
+        run: |
+          python --version
+      - name: create venv
+        run: |
+          python3 -m venv venv
+          source venv/bin/activate
+          pip install --upgrade pip
+
+  prepare_tox:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Install tox
+        run: |
+          sudo pip install --upgrade pip
+          pip install --user tox
+
+
+
+
+
+  # setup-docker-env:
+  #   uses: DongL/deploying-machine-learning-models/.github/workflows/docker-setup.yml@mle
+  # prepare-venv: 
+  #   needs: setup-docker-env
+  #   uses: DongL/deploying-machine-learning-models/.github/workflows/prepare-venv.yml@mle
   # prepare-tox: 
   #   needs: setup-docker-env
   #   uses: DongL/deploying-machine-learning-models/.github/workflows/prepare-tox.yml@mle
