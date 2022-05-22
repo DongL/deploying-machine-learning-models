@@ -5,8 +5,8 @@ on: push
 jobs: 
   docker-setup:
     runs-on: ubuntu-latest
-    container: 
-      image: python:3.9.13-alpine3.14
+    # container: 
+    #   image: python:3.9.13-alpine3.14
     steps:
       - uses: actions/checkout@v3
         with:
@@ -32,7 +32,8 @@ jobs:
       - name: test_app
         run: | 
           cd section-07-ci-and-publishing/house-prices-api
-          /github/home/.local/lib/python3.9/site-packages/tox
+          tox
+          # /github/home/.local/lib/python3.9/site-packages/tox
 
 
 
