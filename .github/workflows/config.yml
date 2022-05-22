@@ -1,0 +1,14 @@
+name: ML-config
+on: push
+
+jobs:
+  docker-setup:
+    runs-on: ubuntu-latest
+    container: 
+      image: alpine:3.9.13-alpine3.14
+    steps: 
+      - name: log python version 
+        run: |
+          python --version
+  
+
