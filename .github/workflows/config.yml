@@ -8,6 +8,11 @@ jobs:
     container: 
       image: python:3.9.13-alpine3.14
     steps:
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
+          fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
+
       - name: log python version 
         run: |
           python --version
@@ -17,19 +22,16 @@ jobs:
           python3 -m venv venv
           source venv/bin/activate
           pip install --upgrade pip 
+          python --version
 
       - name: Install tox
         run: |
           # sudo pip install --upgrade pip
           pip install --user tox
 
-      - uses: actions/checkout@v3
-        with:
-          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
-          fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
-
       - name: test_app
         run: | 
+          pip install --user tox 
           cd section-07-ci-and-publishing/house-prices-api
           tox
 
