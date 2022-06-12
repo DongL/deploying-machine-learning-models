@@ -44,6 +44,7 @@ jobs:
           KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
           KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
           GEMFURY_PUSH_URL: ${{ secrets.GEMFURY_PUSH_URL }}
+          PIP_EXTRA_INDEX_URL: ${{ secrets.PIP_EXTRA_INDEX_URL }}
           # /github/home/.local/lib/python3.9/site-packages/tox
 
 
