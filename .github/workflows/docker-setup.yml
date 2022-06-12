@@ -13,12 +13,14 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v3
-      - uses: docker-practice/actions-setup-docker@master
-      - run: |
-          set -x 
-          docker version
-          docker run --rm hello-world    
+      - name: docker setup
+        uses: docker-practice/actions-setup-docker@master
       - name: build image
+        env: 
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
+          HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
+          GEMFURY_PUSH_URL: ${{ secrets.GEMFURY_PUSH_URL }}
+          PIP_EXTRA_INDEX_URL: ${{ secrets.PIP_EXTRA_INDEX_URL }}
         run: |
           sudo curl https://cli-assets.heroku.com/install.sh | sh
           cd section-08-deploying-with-containers && make build-ml-api-heroku
