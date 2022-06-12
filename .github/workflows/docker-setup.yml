@@ -8,11 +8,9 @@ on: push
 jobs:
   deploy_app_container_in_heroku:
     runs-on: ubuntu-latest
-    container: 
-      image: python:3.9.13-alpine3.14
+    # container: 
+    #   image: python:3.9.13-alpine3.14
     steps:
-      - name: docker container
-        uses: docker://node:12.14.1-alpine3.10
       - name: checkout
         uses: actions/checkout@v3
       - uses: docker-practice/actions-setup-docker@master
