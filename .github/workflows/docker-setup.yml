@@ -1,12 +1,12 @@
-name: ML-config
-on: 
-   workflow_call:
-   workflow_dispatch:
+name: docker setup 
+on: push 
+  # workflow_call:
+  # workflow_dispatch:
       
 
 
 jobs:
-  docker-setup:
+  deploy_app_container_in_heroku:
     runs-on: ubuntu-latest
     container: 
       image: python:3.9.13-alpine3.14
@@ -17,6 +17,13 @@ jobs:
       - name: log python version
         run: | 
           python --version
+      - name: checkout
+        uses: actions/checkout@v3
+      - name: build image
+        run: |
+          sudo curl https://cli-assets.heroku.com/install.sh | sh
+          cd section-08-deploying-with-containers && make build-ml-api-heroku
+
 
       # working_directory: ~/project
 

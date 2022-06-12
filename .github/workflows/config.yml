@@ -1,6 +1,6 @@
 name: config file 
 
-on: push
+on: workflow_call # push
 
 jobs: 
   test:
