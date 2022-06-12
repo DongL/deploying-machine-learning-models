@@ -38,9 +38,12 @@ jobs:
 
       - name: test app
         run: | 
-          # pip show typing-extensions
           cd section-07-ci-and-publishing/house-prices-api
           tox
+        env: 
+          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+          KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+          GEMFURY_PUSH_URL: ${{ secrets.GEMFURY_PUSH_URL }}
           # /github/home/.local/lib/python3.9/site-packages/tox
 
 
