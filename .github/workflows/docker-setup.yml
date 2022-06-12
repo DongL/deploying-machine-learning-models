@@ -1,4 +1,4 @@
-name: docker setup 
+name: docker image - deployment
 on: push 
   # workflow_call:
   # workflow_dispatch:
@@ -15,8 +15,12 @@ jobs:
         uses: docker://node:12.14.1-alpine3.10
       - name: checkout
         uses: actions/checkout@v3
-      - name: Install sudo package
-        run: apt update && apt install sudo  
+      - name: setup docker
+        uses: docker-practice/actions-setup-docker@master
+        run: |
+          set -x 
+          docker version
+          docker run --rm hello-world    
       - name: build image
         run: |
           sudo curl https://cli-assets.heroku.com/install.sh | sh
