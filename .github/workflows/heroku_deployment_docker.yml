@@ -1,5 +1,5 @@
 name: docker image - deployment
-on: push 
+on: workflow_call # push 
   # workflow_call:
   # workflow_dispatch:
       
