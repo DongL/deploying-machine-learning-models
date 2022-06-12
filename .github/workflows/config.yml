@@ -3,7 +3,7 @@ name: config file
 on: push
 
 jobs: 
-  docker-setup:
+  test:
     runs-on: ubuntu-18.04
     # container: 
     #   image: python:3.9.13-alpine3.14
@@ -39,10 +39,8 @@ jobs:
       - name: test app
         run: | 
           # pip show typing-extensions
-          ls 
           cd section-07-ci-and-publishing/house-prices-api
-          ls
-          # tox
+          tox
           # /github/home/.local/lib/python3.9/site-packages/tox
 
 
