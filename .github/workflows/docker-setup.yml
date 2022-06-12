@@ -24,6 +24,12 @@ jobs:
         run: |
           sudo curl https://cli-assets.heroku.com/install.sh | sh
           cd section-08-deploying-with-containers && make build-ml-api-heroku
+      - name: push image to Heroku image registry
+        run: |
+          cd section-08-deploying-with-containers && make push-ml-api-heroku
+      - name: release to Heroku
+        run: |
+          cd section-08-deploying-with-containers && make release-heroku
 
 
       # working_directory: ~/project
