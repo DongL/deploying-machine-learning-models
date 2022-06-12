@@ -39,8 +39,10 @@ jobs:
       - name: test app
         run: | 
           # pip show typing-extensions
+          ls 
           cd section-07-ci-and-publishing/house-prices-api
-          tox
+          ls
+          # tox
           # /github/home/.local/lib/python3.9/site-packages/tox
 
 
