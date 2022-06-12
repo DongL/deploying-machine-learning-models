@@ -15,9 +15,8 @@ jobs:
         uses: docker://node:12.14.1-alpine3.10
       - name: checkout
         uses: actions/checkout@v3
-      - name: setup docker
-        uses: docker-practice/actions-setup-docker@master
-        run: |
+      - uses: docker-practice/actions-setup-docker@master
+      - run: |
           set -x 
           docker version
           docker run --rm hello-world    
