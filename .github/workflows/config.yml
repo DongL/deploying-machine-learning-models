@@ -50,7 +50,7 @@ jobs:
       # Upload model to Gemfury
       - name: Fetch the data
         run: |
-          cd section-07-ci-and-publishing/model_package
+          cd section-07-ci-and-publishing/model-package
           tox -e fetch_data
         env: 
           KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
