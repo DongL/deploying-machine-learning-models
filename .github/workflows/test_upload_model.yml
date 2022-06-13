@@ -1,5 +1,5 @@
 name: test and upload model
-on: push
+on: workflow_call
 
 jobs: 
   test-and-upload-the-model:
