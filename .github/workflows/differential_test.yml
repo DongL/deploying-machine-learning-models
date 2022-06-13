@@ -10,13 +10,18 @@ jobs:
       - name: checkout
         uses: actions/checkout@v3
 
+      - name: set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9.5
+
       - name: create venv
         run: |
           python3 -m venv venv
           source venv/bin/activate
           pip install --upgrade pip 
           python --version
-
+      
       - name: Capture previous model predictions
         run: | 
           . venv/bin/activate
