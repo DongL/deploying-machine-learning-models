@@ -1,9 +1,9 @@
 name: config file 
 
-on: workflow_call # push
+on: push #  workflow_call
 
 jobs: 
-  test:
+  test-and-upload-the-model:
     runs-on: ubuntu-18.04
     # container: 
     #   image: python:3.9.13-alpine3.14
@@ -46,6 +46,31 @@ jobs:
           GEMFURY_PUSH_URL: ${{ secrets.GEMFURY_PUSH_URL }}
           PIP_EXTRA_INDEX_URL: ${{ secrets.PIP_EXTRA_INDEX_URL }}
           # /github/home/.local/lib/python3.9/site-packages/tox
+     
+      # Upload model to Gemfury
+      - name: Fetch the data
+        run: |
+          cd section-07-ci-and-publishing/model_package
+          tox -e fetch_data
+        env: 
+          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+          KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+      - name: Test the model
+        run: |
+          tox
+        env: 
+          GEMFURY_PUSH_URL: ${{ secrets.GEMFURY_PUSH_URL }}
+          PIP_EXTRA_INDEX_URL: ${{ secrets.PIP_EXTRA_INDEX_URL }}
+      - name: Publish model to Gemfury
+        run: |
+          tox -e publish_model
+        env: 
+          GEMFURY_PUSH_URL: ${{ secrets.GEMFURY_PUSH_URL }}
+          PIP_EXTRA_INDEX_URL: ${{ secrets.PIP_EXTRA_INDEX_URL }}
+
+
+
+
 
 
 
