@@ -3,6 +3,9 @@
 # testing requirements
 pytest>=6.2.3,<6.3.0
 
+# markupsafe downgraded to 2.0.1
+markupsafe==2.0.1
+
 # api
 flask>=1.1.1,<1.2.0
 
