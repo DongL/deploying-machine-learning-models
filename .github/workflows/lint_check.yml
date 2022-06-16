@@ -1,0 +1,19 @@
+name: Lint checkout
+on: push
+
+jobs:
+  run-flake8:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        name: Checkout code
+      - name: install python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.10.0
+      - name: install poetry
+        run: pip install poetry
+      - name: install dependencies
+        run: poetry install
+      - name: run flake8
+        run: make lint
