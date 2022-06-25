@@ -4,6 +4,8 @@ echo "::debug ::Debug Message"
 echo "::warning ::Warning Message"
 echo "::error ::Error Message"
 
+
+echo "Hello $1"
 echo "::add-mask::$1"
 echo "Hello $1"
 time=$(date)
@@ -15,4 +17,4 @@ echo 'some stuff'
 echo 'some stuff'
 echo '::endgroup::'
 
-echo '::set-env name=HELLO::hello'
+# echo '::set-env name=HELLO::hello'
