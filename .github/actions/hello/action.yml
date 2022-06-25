@@ -13,4 +13,3 @@ runs:
   using: 'node12'
   main: 'index.js'
 
-  

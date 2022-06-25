@@ -1,18 +1,20 @@
-const core = require('@actions/core');
-const core = require('@actions/github');
+console.log('Hello name');
 
-try{
-    // throw( new error('some error message'));
-    const name = core.getInput('who-to-greet');
-    console.log('Hello ${name}');
+// const core = require('@actions/core');
+// const core = require('@actions/github');
 
-    const time = new Date();
-    core.setOutput('time', time.toTimeString());
+// try{
+//     // throw( new error('some error message'));
+//     const name = core.getInput('who-to-greet');
+//     console.log('Hello ${name}');
 
-    console.log(JSON.stringify(github, null, '\t'));
-} catch(error){
-    core.setFailed(error.message);
-}
+//     const time = new Date();
+//     core.setOutput('time', time.toTimeString());
+
+//     console.log(JSON.stringify(github, null, '\t'));
+// } catch(error){
+//     core.setFailed(error.message);
+// }
 
 
 
