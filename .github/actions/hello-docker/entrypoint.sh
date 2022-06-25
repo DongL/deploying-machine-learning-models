@@ -2,7 +2,7 @@
 
 if [ true ]
 then
-    echo 'error'
+    echo 'Error: this experiment failed!'
     exit 1
 fi
 
