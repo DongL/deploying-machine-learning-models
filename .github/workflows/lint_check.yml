@@ -1,5 +1,5 @@
 name: Lint checkout
-on: push
+on: workflow_call
 
 jobs:
   run-flake8:

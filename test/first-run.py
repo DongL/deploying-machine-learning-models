@@ -34,7 +34,7 @@ def get_template_columns(ref_gwas, target_gwas, right_on, left_on):
     try:
         template = res.loc[:, [right_on, 'SNP_y',
                                'ALLELE1_y', 'ALLELE0_y', 'A1FREQ_y', 'BETA_y']]
-    except:
+    except Exception as e:
         template = res.loc[:, ['SNP_y', 'SNP_y',
                                'ALLELE1_y', 'ALLELE0_y', 'A1FREQ_y', 'BETA_y']]
     template.columns = ['rsid_harmonized'] + [el +
