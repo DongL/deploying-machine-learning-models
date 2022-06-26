@@ -37,6 +37,8 @@ jobs:
       - name: Fetch Training data - 2GB
         run: |
           source venv/bin/activate
+          cp ./scripts/kaggle.json /home/runner/.kaggle/.
+          chmod 600 /Users/dongliang/.kaggle/kaggle.json
           chmod +x ./scripts/fetch_kaggle_large_dataset.sh
           ./scripts/fetch_kaggle_large_dataset.sh
 
