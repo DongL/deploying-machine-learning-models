@@ -1,0 +1,68 @@
+name: test and upload model
+on: push
+
+jobs: 
+  test-and-upload-the-model:
+    runs-on: ubuntu-18.04
+    # container: 
+    #   image: python:3.9.13-alpine3.14
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
+          fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
+      
+      - name: set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.6.4
+      
+      - name: log python version 
+        run: |
+          pip install --upgrade pip
+          python --version
+
+      - name: create venv
+        run: |
+          python3 -m venv venv
+          source venv/bin/activate
+          pip install --upgrade pip 
+          python --version
+
+      - name: install requirements
+        run: |
+          source venv/bin/activate
+          pip install -r packages/neural_network_model/requirements.txt 
+      
+      - name: Fetch Training data - 2GB
+        run: |
+          source venv/bin/activate
+          chmod +x ./scripts/fetch_kaggle_large_dataset.sh
+          ./scripts/fetch_kaggle_large_dataset.sh
+
+
+
+
+
+
+
+
+
+  # setup-docker-env:
+  #   uses: DongL/deploying-machine-learning-models/.github/workflows/docker-setup.yml@mle
+  # prepare-venv: 
+  #   needs: setup-docker-env
+  #   uses: DongL/deploying-machine-learning-models/.github/workflows/prepare-venv.yml@mle
+  # prepare-tox: 
+  #   needs: setup-docker-env
+  #   uses: DongL/deploying-machine-learning-models/.github/workflows/prepare-tox.yml@mle
+  # sanity-check:
+  #   runs-on: ubuntu-latest
+  #   needs: prepare-tox
+  #   steps:
+  #     - name: log python version
+  #       run: |
+  #         python --version
+
+
+    

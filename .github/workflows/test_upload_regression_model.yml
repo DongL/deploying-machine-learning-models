@@ -54,6 +54,7 @@ jobs:
         env: 
           KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
           KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+
       - name: Test the model
         run: |
           cd section-07-ci-and-publishing/model-package
@@ -61,9 +62,18 @@ jobs:
         env: 
           GEMFURY_PUSH_URL: ${{ secrets.GEMFURY_PUSH_URL }}
           PIP_EXTRA_INDEX_URL: ${{ secrets.PIP_EXTRA_INDEX_URL }}
-      - name: Publish model to Gemfury
+
+      - name: Publish regression model to Gemfury
         run: |
           cd section-07-ci-and-publishing/model-package
+          tox -e publish_model
+        env: 
+          GEMFURY_PUSH_URL: ${{ secrets.GEMFURY_PUSH_URL }}
+          PIP_EXTRA_INDEX_URL: ${{ secrets.PIP_EXTRA_INDEX_URL }}
+
+      - name: Publish neural network model to Gemfury
+        run: |
+          cd packages
           tox -e publish_model
         env: 
           GEMFURY_PUSH_URL: ${{ secrets.GEMFURY_PUSH_URL }}
