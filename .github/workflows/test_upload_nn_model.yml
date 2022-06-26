@@ -37,8 +37,7 @@ jobs:
       - name: Fetch Training data - 2GB
         run: |
           source venv/bin/activate
-          ls 
-          cp ./scripts/kaggle.json /home/runner/.kaggle/.
+          cp ./packages/kaggle.json /home/runner/.kaggle/.
           chmod 600 /home/runner/.kaggle/kaggle.json
           chmod +x ./scripts/fetch_kaggle_large_dataset.sh
           ./scripts/fetch_kaggle_large_dataset.sh
