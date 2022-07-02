@@ -38,6 +38,7 @@ jobs:
         run: |
           source venv/bin/activate
           mkdir /home/runner/.kaggle
+          ls
           cp ./kaggle.json /home/runner/.kaggle/kaggle.json
           chmod 600 /home/runner/.kaggle/kaggle.json
           chmod +x ./scripts/fetch_kaggle_large_dataset.sh
