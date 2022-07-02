@@ -54,6 +54,10 @@ jobs:
           source venv/bin/activate
           chmod +x ./scripts/publish_model.sh
           ./scripts/publish_model.sh ./packages/neural_network_model/
+        env: 
+          GEMFURY_PUSH_URL: ${{ secrets.GEMFURY_PUSH_URL }}
+          PIP_EXTRA_INDEX_URL: ${{ secrets.PIP_EXTRA_INDEX_URL }}
+
 
 
 
