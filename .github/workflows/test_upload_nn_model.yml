@@ -43,6 +43,17 @@ jobs:
           chmod 600 /home/runner/.kaggle/kaggle.json
           chmod +x ./scripts/fetch_kaggle_large_dataset.sh
           ./scripts/fetch_kaggle_large_dataset.sh
+      
+      - name: Train model
+        run: |
+          source venv/bin/activate
+          PYTHONPATH=./packages/neural_network_model python3 packages/neural_network_model/neural_network_model/train_pipeline.py
+      
+      - name: Publish model to Gemfury
+        run: |
+          source venv/bin/activate
+          chmod +x ./scripts/publish_model.sh
+          ./scripts/publish_model.sh ./packages/neural_network_model/
 
 
 
