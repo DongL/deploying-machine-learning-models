@@ -1,5 +1,5 @@
 name: differential test 
-on: workflow_dispatch 
+on: push 
   # workflow_call:
   # workflow_dispatch:
       
