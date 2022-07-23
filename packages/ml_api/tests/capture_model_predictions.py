@@ -8,8 +8,8 @@ import pandas as pd
 
 from regression_model.predict import make_prediction
 from regression_model.processing.data_manager import load_dataset
-
-from api import config
+import api
+# from api import config
 
 
 def capture_predictions() -> None:
