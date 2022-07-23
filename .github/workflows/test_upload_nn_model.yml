@@ -1,23 +1,23 @@
 name: test and upload model
-on: push
+on: workflow_call
 
-jobs: 
+jobs:
   test-and-upload-the-model:
     runs-on: ubuntu-18.04
-    # container: 
+    # container:
     #   image: python:3.9.13-alpine3.14
     steps:
       - uses: actions/checkout@v3
         with:
           persist-credentials: false # otherwise, the token used is the GITHUB_TOKEN, instead of your personal access token.
           fetch-depth: 0 # otherwise, there would be errors pushing refs to the destination repository.
-      
+
       - name: set up Python
         uses: actions/setup-python@v2
         with:
           python-version: 3.6.7
-      
-      - name: log python version 
+
+      - name: log python version
         run: |
           pip install --upgrade pip
           python --version
@@ -32,47 +32,38 @@ jobs:
       - name: install requirements
         run: |
           source venv/bin/activate
-          pip install -r packages/neural_network_model/requirements.txt 
-      
+          pip install -r packages/neural_network_model/requirements.txt
+
       - name: Fetch Training data - 2GB
         run: |
           source venv/bin/activate
           mkdir /home/runner/.kaggle
           cp ./kaggle.json /home/runner/.kaggle/kaggle.json
-          
+
           chmod 600 /home/runner/.kaggle/kaggle.json
           chmod +x ./scripts/fetch_kaggle_large_dataset.sh
           ./scripts/fetch_kaggle_large_dataset.sh
-      
+
       - name: Train model
         run: |
           source venv/bin/activate
           PYTHONPATH=./packages/neural_network_model python3 packages/neural_network_model/neural_network_model/train_pipeline.py
-      
+
       - name: Publish model to Gemfury
         run: |
           source venv/bin/activate
           chmod +x ./scripts/publish_model.sh
           ./scripts/publish_model.sh ./packages/neural_network_model/
-        env: 
+        env:
           GEMFURY_PUSH_URL: ${{ secrets.GEMFURY_PUSH_URL }}
           PIP_EXTRA_INDEX_URL: ${{ secrets.PIP_EXTRA_INDEX_URL }}
 
-
-
-
-
-
-
-
-
-
   # setup-docker-env:
   #   uses: DongL/deploying-machine-learning-models/.github/workflows/docker-setup.yml@mle
-  # prepare-venv: 
+  # prepare-venv:
   #   needs: setup-docker-env
   #   uses: DongL/deploying-machine-learning-models/.github/workflows/prepare-venv.yml@mle
-  # prepare-tox: 
+  # prepare-tox:
   #   needs: setup-docker-env
   #   uses: DongL/deploying-machine-learning-models/.github/workflows/prepare-tox.yml@mle
   # sanity-check:
@@ -82,6 +73,3 @@ jobs:
   #     - name: log python version
   #       run: |
   #         python --version
-
-
-    
