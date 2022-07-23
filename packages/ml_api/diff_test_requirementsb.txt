@@ -1,4 +1,4 @@
 --extra-index-url=${PIP_EXTRA_INDEX_URL}
 
 # Set this to the previous model version
-# regression-model<=2.0.19
+regression-model<=2.0.19
