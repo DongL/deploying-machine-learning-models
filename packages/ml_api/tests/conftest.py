@@ -18,3 +18,6 @@ def app():
 def flask_test_client(app):
     with app.test_client() as test_client:
         yield test_client
+
+
+print('done!!!')

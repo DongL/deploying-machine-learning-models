@@ -27,6 +27,7 @@ jobs:
         run: |
           # . venv/bin/activate
           # poetry shell
+          ls .
           pip3 install --upgrade poetry
           poetry config virtualenvs.in-project true
           poetry install
@@ -46,6 +47,8 @@ jobs:
       - name: Runnning differential tests
         run: |
           # . venv/bin/activate
+
+          ls . 
           poetry run pip install -r packages/ml_api/requirements.txt
           poetry run py.test -vv packages/ml_api/tests -m differential
         env:
