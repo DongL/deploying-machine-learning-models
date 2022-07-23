@@ -33,8 +33,7 @@ jobs:
           # 
           poetry show
           pip install -r packages/ml_api/diff_test_requirementsb.txt
-          poetry shell
-          # python3 packages/ml_api/tests/capture_model_predictions.py
+          poetry run python3 packages/ml_api/tests/capture_model_predictions.py
 
 
           # pip install -r packages/ml_api/diff_test_requirements.txt
