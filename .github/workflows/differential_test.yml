@@ -29,10 +29,10 @@ jobs:
           # poetry shell
           pip3 install --upgrade poetry
           poetry config virtualenvs.in-project true
-          # poetry install
+          poetry install
           # 
           poetry show
-          pip install -r packages/ml_api/diff_test_requirementsb.txt
+          poetry run pip install -r packages/ml_api/diff_test_requirementsb.txt
           poetry run python3 packages/ml_api/tests/capture_model_predictions.py
 
 
