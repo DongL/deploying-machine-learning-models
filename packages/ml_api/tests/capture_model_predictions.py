@@ -4,6 +4,7 @@ Never run it locally or you will disrupt the
 differential test versioning logic.
 """
 
+from api import config
 import pandas as pd
 
 from regression_model.predict import make_prediction
@@ -11,7 +12,6 @@ from regression_model.processing.data_manager import load_dataset
 import pathlib
 
 PACKAGE_ROOT = pathlib.Path(__file__).resolve().parent.parent
-# from api import config
 
 
 def capture_predictions() -> None:
@@ -30,7 +30,8 @@ def capture_predictions() -> None:
 
     # hack here to save the file to the regression model
     # package of the repo, not the installed package
-    predictions_df.to_csv(f'{PACKAGE_ROOT}/{save_file}')  # config.PACKAGE_ROOT
+    # config.PACKAGE_ROOT
+    predictions_df.to_csv(f'{config.PACKAGE_ROOT}/{save_file}')
 
 
 if __name__ == '__main__':
