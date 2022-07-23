@@ -8,7 +8,9 @@ import pandas as pd
 
 from regression_model.predict import make_prediction
 from regression_model.processing.data_manager import load_dataset
-import api
+import pathlib
+
+PACKAGE_ROOT = pathlib.Path(__file__).resolve().parent.parent
 # from api import config
 
 
@@ -28,7 +30,7 @@ def capture_predictions() -> None:
 
     # hack here to save the file to the regression model
     # package of the repo, not the installed package
-    predictions_df.to_csv(f'{config.PACKAGE_ROOT}/{save_file}')
+    predictions_df.to_csv(f'{PACKAGE_ROOT}/{save_file}')  # config.PACKAGE_ROOT
 
 
 if __name__ == '__main__':
