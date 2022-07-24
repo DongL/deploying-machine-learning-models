@@ -1,5 +1,8 @@
 import sys
 sys.path.append('.')
+sys.path.append('./packages/')
+sys.path.append('./packages/ml_api')
+sys.path.append('./packages/ml_api/api')
 
 from api.config import TestingConfig
 from api.app import create_app
