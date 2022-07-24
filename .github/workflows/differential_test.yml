@@ -44,9 +44,9 @@ jobs:
 
       - name: Runnning differential tests
         run: |
-          cd packages/ml_api/
+          # cd packages/ml_api/
+          poetry run echo "PYTHONPATH=packages" >> $GITHUB_ENV
           poetry run pip install -r requirements.txt
-          poetry run echo "PYTHONPATH=./packages/" >> $GITHUB_ENV
           poetry run py.test -vv tests -m differential
 
 
