@@ -25,19 +25,15 @@ jobs:
 
       - name: Capture previous model predictions
         run: |
-          # . venv/bin/activate
-          # poetry shell
-          ls ./packages/ml_api
-          echo ---------------------
-          ls ./packages/ml_api/api
           pip3 install --upgrade poetry
           poetry config virtualenvs.in-project true
           poetry install
-          poetry show
           poetry run pip install -r packages/ml_api/diff_test_requirementsb.txt
-          poetry run python3 packages/ml_api/tests/capture_model_predictions.py
+          cd packages/ml_api/
+          poetry run python3 /tests/capture_model_predictions.py
 
 
+          # . venv/bin/activate
           # pip install -r packages/ml_api/diff_test_requirements.txt
           # PYTHONPATH=./packages/ml_api python3 packages/ml_api/tests/capture_model_predictions.py
         env:
