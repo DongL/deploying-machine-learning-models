@@ -1,4 +1,4 @@
-name: test and upload model
+name: test and upload models
 on:
   # workflow_call
   push
