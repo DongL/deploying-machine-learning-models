@@ -62,7 +62,6 @@ jobs:
           mv ./train.csv ./section-07-ci-and-publishing/model-package/regression_model/datasets
           mv ./test.csv ./section-07-ci-and-publishing/model-package/regression_model/datasets
 
-
           # ls ./regression_model/datasets
           # cd section-07-ci-and-publishing/model-package
           # tox -e fetch_data
@@ -88,7 +87,8 @@ jobs:
 
       - name: Publish newer regression model to Gemfury
         run: |
-          cd packages
+          cd section-07-ci-and-publishing/model-package
+          echo "2.0.20" > regression_model/VERSION
           tox -e publish_model
         env:
           GEMFURY_PUSH_URL: ${{ secrets.GEMFURY_PUSH_URL }}
