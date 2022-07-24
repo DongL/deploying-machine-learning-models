@@ -1,17 +1,23 @@
-import io
-import json
-import math
-import os
 import sys
 sys.path.append('..')
+sys.path.append('.')
 
 
-# from neural_network_model.config import config as ccn_config
+import os
+import math
+import json
+import io
 from regression_model import __version__ as _version
 from regression_model.config import config as model_config
 from regression_model.processing.data_management import load_dataset
-
 from api import __version__ as api_version
+
+
+sys.path.append('..')
+sys.path.append('.')
+
+
+# from neural_network_model.config import config as ccn_config
 
 
 def test_health_endpoint_returns_200(flask_test_client):
