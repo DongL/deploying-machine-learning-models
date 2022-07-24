@@ -1,8 +1,6 @@
 import pytest
 from api.app import create_app
 from api.config import TestingConfig
-import sys
-sys.path.append('.')
 
 
 @pytest.fixture
