@@ -2,6 +2,9 @@ import io
 import json
 import math
 import os
+import sys
+sys.path.append('..')
+
 
 # from neural_network_model.config import config as ccn_config
 from regression_model import __version__ as _version
