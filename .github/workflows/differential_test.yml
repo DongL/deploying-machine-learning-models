@@ -30,7 +30,7 @@ jobs:
           poetry install
           poetry run pip install -r packages/ml_api/diff_test_requirementsb.txt
           cd packages/ml_api/
-          poetry run python3 /tests/capture_model_predictions.py
+          poetry run python3 tests/capture_model_predictions.py
 
 
           # . venv/bin/activate
