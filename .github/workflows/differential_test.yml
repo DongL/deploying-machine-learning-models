@@ -46,8 +46,7 @@ jobs:
         run: |
           cd packages/ml_api/
           poetry run pip install -r requirements.txt
-
-          ls . 
+          export PYTHONPATH=./packages/
           poetry run py.test -vv tests -m differential
 
 
