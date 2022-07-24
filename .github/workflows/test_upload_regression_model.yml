@@ -57,7 +57,7 @@ jobs:
           # ls -l /home/runner/.kaggle/kaggle.json
           # less /home/runner/.kaggle/kaggle.json
           # chmod +x ./scripts/fetch_kaggle_large_dataset.sh
-          # cd section-07-ci-and-publishing/model-package
+          cd section-07-ci-and-publishing/model-package
           # ls .
           # mv ./train.csv ./section-07-ci-and-publishing/model-package/regression_model/datasets
           # mv ./test.csv ./section-07-ci-and-publishing/model-package/regression_model/datasets
