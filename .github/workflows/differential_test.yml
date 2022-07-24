@@ -27,7 +27,8 @@ jobs:
         run: |
           # . venv/bin/activate
           # poetry shell
-          ls .
+          ls ./packages/ml_api
+          ls ./packages/ml_api/api
           pip3 install --upgrade poetry
           poetry config virtualenvs.in-project true
           poetry install
