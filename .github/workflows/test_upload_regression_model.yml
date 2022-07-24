@@ -50,7 +50,7 @@ jobs:
       - name: Fetch the data
         run: |
           cd section-07-ci-and-publishing/model-package
-          tox -e fetch_data
+          # tox -e fetch_data
         env:
           KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
           KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
@@ -58,7 +58,7 @@ jobs:
       - name: Test the model
         run: |
           cd section-07-ci-and-publishing/model-package
-          tox
+          # tox
         env:
           GEMFURY_PUSH_URL: ${{ secrets.GEMFURY_PUSH_URL }}
           PIP_EXTRA_INDEX_URL: ${{ secrets.PIP_EXTRA_INDEX_URL }}
