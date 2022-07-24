@@ -47,7 +47,7 @@ jobs:
           # cd packages/ml_api/
           poetry run echo "PYTHONPATH=packages" >> $GITHUB_ENV
           poetry run pip install -r packages/ml_api/requirements.txt
-          poetry run py.test -vv packages/ml_api/tests -m differential
+          poetry run packages/ml_api/py.test -vv packages/ml_api/tests -m differential
 
 
           # . venv/bin/activate
