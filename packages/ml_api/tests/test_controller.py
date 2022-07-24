@@ -2,10 +2,10 @@ import os
 import math
 import json
 import io
-from regression_model.regression_model import __version__ as _version
-from regression_model.regression_model.config import config as model_config
-from regression_model.regression_model.processing.data_management import load_dataset
 from api import __version__ as api_version
+from regression_model import __version__ as _version
+from regression_model.config import config as model_config
+from regression_model.processing.data_management import load_dataset
 
 
 # from neural_network_model.config import config as ccn_config
