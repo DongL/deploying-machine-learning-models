@@ -49,7 +49,7 @@ jobs:
       # Upload model to Gemfury
       - name: Fetch the data
         run: |
-          source venv/bin/activate
+          # source venv/bin/activate
           mkdir /home/runner/.kaggle
           cp ./kaggle.json /home/runner/.kaggle/kaggle.json
 
