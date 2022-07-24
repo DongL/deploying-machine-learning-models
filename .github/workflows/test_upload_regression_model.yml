@@ -55,7 +55,7 @@ jobs:
 
           chmod 600 /home/runner/.kaggle/kaggle.json
           # chmod +x ./scripts/fetch_kaggle_large_dataset.sh
-          # cd section-07-ci-and-publishing/model-package
+          cd section-07-ci-and-publishing/model-package
           tox -e fetch_data
         env:
           KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
@@ -64,7 +64,7 @@ jobs:
       - name: Test the model
         run: |
           cd section-07-ci-and-publishing/model-package
-          # tox
+          tox
         env:
           GEMFURY_PUSH_URL: ${{ secrets.GEMFURY_PUSH_URL }}
           PIP_EXTRA_INDEX_URL: ${{ secrets.PIP_EXTRA_INDEX_URL }}
