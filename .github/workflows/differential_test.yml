@@ -29,6 +29,7 @@ jobs:
           poetry config virtualenvs.in-project true
           poetry install
           poetry run pip install -r packages/ml_api/diff_test_requirementsb.txt
+          poetry add pandas
           cd packages/ml_api/
           poetry run python3 tests/capture_model_predictions.py
 
