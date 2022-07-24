@@ -1,6 +1,7 @@
 name: test and upload model
-on: push
-
+on:
+  workflow_call
+  # push
 jobs:
   test-and-upload-the-model:
     runs-on: ubuntu-18.04
