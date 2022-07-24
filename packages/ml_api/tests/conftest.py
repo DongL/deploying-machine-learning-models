@@ -1,6 +1,11 @@
-import pytest
-from api.app import create_app
+import sys
+sys.path.append('.')
+
 from api.config import TestingConfig
+from api.app import create_app
+import pytest
+import sys
+sys.path.append('.')
 
 
 @pytest.fixture
