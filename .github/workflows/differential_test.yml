@@ -32,7 +32,6 @@ jobs:
           cd packages/ml_api/
           poetry run python3 tests/capture_model_predictions.py
 
-
           # . venv/bin/activate
           # pip install -r packages/ml_api/diff_test_requirements.txt
           # PYTHONPATH=./packages/ml_api python3 packages/ml_api/tests/capture_model_predictions.py
