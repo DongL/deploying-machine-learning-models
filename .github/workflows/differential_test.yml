@@ -44,11 +44,14 @@ jobs:
 
       - name: Runnning differential tests
         run: |
-          # . venv/bin/activate
+          cd packages/ml_api/
+          poetry run pip install -r requirements.txt
+          poetry run py.test -vv tests -m differential
 
-          ls . 
-          poetry run pip install -r packages/ml_api/requirements.txt
-          poetry run py.test -vv packages/ml_api/tests -m differential
+
+          # . venv/bin/activate
+          # poetry run pip install -r packages/ml_api/requirements.txt
+          # poetry run py.test -vv packages/ml_api/tests -m differential
         env:
           HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
           HEROKU_APP_NAME: ${{ secrets.HEROKU_APP_NAME }}
